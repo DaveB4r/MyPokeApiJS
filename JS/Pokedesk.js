@@ -9,11 +9,29 @@ export default class Pokedesk{
     `;
     return div;
   }
+  search(){
+    const div = document.createElement('div');
+    div.className = 'search';
+    div.innerHTML = `
+      <input id="search" type="search" placeholder="Search" />
+    `;
+    return div;
+  }
+  rotate(){
+    const div = document.createElement('div');
+    div.className = 'rotate';
+    const image = document.createElement('img');
+    image.src = './assets/rotate.png';
+    image.id = 'rotate';
+    div.appendChild(image);
+    return div;
+  }
   render(){
     const div = document.createElement('div');
-    const controls = this.controls();
     div.className = 'pokedesk';
-    div.appendChild(controls);
+    div.appendChild(this.rotate());
+    div.appendChild(this.search());
+    div.appendChild(this.controls());
     return div;    
   }
 }
